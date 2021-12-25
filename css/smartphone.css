@@ -28,8 +28,8 @@ body {
 
 .white {
   background-color: rgba(255, 255, 255, 0.97);
-  margin: 0px 10px 30px 10px;
-  padding: 10px 20px;
+  margin: 0px 10px 50px 10px;
+  padding: 30px 20px;
   /* max-width: 900px; */
 }
 
@@ -81,6 +81,7 @@ body {
 
 /* 背景 */
 .background {
+  transform: translate3d(0, 0, 0);
   margin: 0vh;
   z-index: -10;
   position: fixed;
@@ -174,7 +175,7 @@ ul .header-button img{
 /* ヘッダー */
 .header-wrapper{
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   /* position: relative; */
 
 }
@@ -213,19 +214,49 @@ ul .header-button img{
 
 .smartphone-info{
   z-index:100;
-  position:fixed;
+  position:absolute;
   left:0px;
   top:0px;
   height: 100vh;
   width: auto;
+
+  animation-name: faderight;
+  animation-duration: 2s;
 }
 
 .smartphone-title{
   z-index:100;
-  position:fixed;
+  position:absolute;
   right:0px;
   height: 100vh;
   width: auto;
+
+  animation-name: fadeleft;
+  animation-duration: 2s;
+}
+
+@keyframes fadeleft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes faderight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 
@@ -291,10 +322,9 @@ ul .header-button img{
 
 /* ステートメント */
 .statement-wrapper{
-  width: 100vw;
-  /* height: 100vh; */
+  margin-top: 70px;
   font-size: 18px;
-  margin-bottom: 100px;
+
 }
 
 .statement-info-wrapper{
